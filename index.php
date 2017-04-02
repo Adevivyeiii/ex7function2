@@ -5,13 +5,13 @@
   // Process the form request
   if( isset($_POST['submit']) )
   {
-      $theCoffee = htmlentities($_POST['coffee']);
-      $theCoffee = strtolower($theCoffee); // Lowercase form submission
-      $coffee = makeCoffee($theCoffee);
+      $theMake = htmlentities($_POST['make']);
+      $theMake = ($theMake); // Lowercase form submission
+      $Make = scionModel($theMake);
   } else {
     // User hasn't entered a value
-    $theCoffee = '';
-    $coffee = '';
+    $theMake = '';
+    $Make = '';
   }
 ?>
 
@@ -19,20 +19,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Functional Coffee</title>
+    <title> Whats under the hood?</title>
     <link rel="stylesheet" href="css/bootstrap.css">
   </head>
   <body class="bg-faded">
     <main class="container py-4">
-      <h1 class="pb-4 font-weight-bold text-center">Types of Coffee</h1>
+      <h1 class="pb-4 font-weight-bold text-center">Whats under the hood of your Scion?</h1>
       <form class="form-group" action="" method="post">
-        <label for="coffee" class="sr-only">Coffee</label>
-        <input class="form-control form-control-lg mr-sm-2" type="text" value="<?php echo ( $theCoffee ? $theCoffee : '' );?>" placeholder="What will you drink?" name="coffee" id="coffee">
+        <label for="Model" class="sr-only">Model</label>
+        <input class="form-control form-control-lg mr-sm-2" type="text" value="<?php echo ( $theMake ? $make : '' );?>" placeholder="What do you drive?" name="make" id="make">
         <button class="btn btn-primary sr-only" name="submit" type="submit">Search</button>
       </form>
       <?php 
-        if($coffee){
-           echo $coffee;
+        if($Make){
+           echo $Make;
         }
       ?>
     </main>
